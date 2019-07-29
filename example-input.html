@@ -19,7 +19,7 @@ function showPosition(position) {
 	var lat=position.coords.latitude;
 	var lng=position.coords.longitude;
 	var latlng=lat+","+lng;
-	var apikey="AIzaSyCIhrhwrQrz0Pp_VnAPSbykM72rLt9Euww";
+	var apikey="*********";
 	$.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ latlng +"&sensor=true&key="+apikey, function(data, status) {
 		// alert("Data: " + data + "\nStatus: " + status);
 		var ADDRESS=data.results[0].formatted_address;
