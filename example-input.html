@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<input name="address" id="input">
+<script type="text/javascript">
+$(document).ready(function() {
+	getLocation();
+});
+
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else {
+		alert("Geolocation is not supported by this browser.");
+	}
+}
+
+function showPosition(position) {
+	// alert("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
+	var lat=position.coords.latitude;
+	var lng=position.coords.longitude;
+	var latlng=lat+","+lng;
+	var apikey="AIzaSyCIhrhwrQrz0Pp_VnAPSbykM72rLt9Euww";
+	$.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ latlng +"&sensor=true&key="+apikey, function(data, status) {
+		// alert("Data: " + data + "\nStatus: " + status);
+		var ADDRESS=data.results[0].formatted_address;
+    $("#input").val(ADDRESS);
+	});
+}
+</script>
