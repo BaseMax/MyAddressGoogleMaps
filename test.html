@@ -1,0 +1,12 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+var lat="40.714224";
+var lng="-73.961452";
+var latlng=lat+","+lng;
+var apikey="*********";
+$.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ latlng +"&sensor=true&key="+apikey, function(data, status) {
+	// alert("Data: " + data + "\nStatus: " + status);
+	console.log(data);
+	alert("Address: " + data.plus_code.compound_code);
+});
+</script>
