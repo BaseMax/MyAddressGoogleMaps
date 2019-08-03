@@ -23,7 +23,7 @@ function showPosition(position) {
 	$.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ latlng +"&sensor=true&key="+apikey, function(data, status) {
 		// alert("Data: " + data + "\nStatus: " + status);
 		var ADDRESS=data.results[0].formatted_address;
-    $("#input").val(ADDRESS);
+		$("#input").val(ADDRESS);
 	});
 }
 </script>
